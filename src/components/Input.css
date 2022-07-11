@@ -1,0 +1,36 @@
+.inputBox {
+    width: 99%;
+    height: 45px;
+    border-radius: 12px;
+    padding: 6px;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+}
+
+.location {
+    width: 40px;
+    height: 30px;
+    margin-top: 4px;
+    
+
+}
+.location:hover{
+   color: rgb(110, 107, 107);
+   height: 33px;
+}
+
+.inputBox>input {
+    width: 95%;
+    height: 100%;
+    border: none;
+    font-size: 24px;
+    font-weight:200;
+    margin-left: 5px;
+
+}
+input:focus{
+    outline: none;
+}

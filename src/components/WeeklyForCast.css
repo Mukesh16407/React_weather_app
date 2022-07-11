@@ -1,0 +1,21 @@
+.weeklyWeather {
+    border: 1px solid rgb(201, 198, 198);
+    margin-top: 20px;
+    height: 100px;
+    padding: 10px;
+    display:flex;
+    justify-content:space-evenly;
+
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    
+    width: 70px;
+    justify-content: center;
+   padding: 5px;
+   margin-left: 5px;
+   font-size: small;
+   
+}
+

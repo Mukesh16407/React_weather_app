@@ -1,0 +1,86 @@
+.bodyBox {
+    border: 1px solid green;
+    margin-top: 15px;
+    min-height: 74%;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.date{
+   
+    display: flex;
+    height: 30px;
+    justify-content:center;
+    align-items: center; 
+}
+.date>p{
+    margin: 3px;
+   
+}
+.tempRow{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2px;
+    
+    height: 75px;
+    font-weight: bold;
+    font-size: 40px;
+}
+.otherDetails{
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    margin-top: 5px;
+}
+.otherDetails > .div1{
+    display: flex;
+   
+    justify-content: space-around;
+    align-items: center;
+    height: 55px;
+}
+.otherDetails > .div2{
+    display: flex;
+    height: 55px;
+    
+    margin-top: 2px;
+    justify-content:space-between;
+   
+}
+.insideDiv{
+    
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 5px;
+    padding: 4px;
+   background-color: rgb(245,250,255);
+    
+}
+.insideDiv:hover{
+   background-color: rgb(221, 234, 248); 
+}
+.dailyWeather{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    gap: 5%;
+    margin-left: 40px;
+    
+}
+.dailyWeather>div{
+    padding: 5px;
+    border-radius: 5px;
+    background-color:tomato;
+    
+}
+
+.dailyWeather>div:hover{
+    background-color: rgb(76, 74, 74);
+}
+.dailyWeather>div>:hover{
+    color: rgb(182, 137, 137);
+    
+}
