@@ -11,9 +11,20 @@ export const Input = ({setQuery}) => {
   const handleSearchClick =()=>{
     if(city !=="") setQuery({q:city})
   }
+  
+  const handleLocationClick=()=>{
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position)=>{
+        let lat =position.coords.latitude;
+        let lon = position.coords.longitude;
+
+        setQuery({lat,lon})
+      })
+    }
+  }
   return (
     <div className="inputBox">
-    <ImLocation className="location" />
+    <ImLocation className="location"onClick={handleLocationClick} />
     <input type='text' placeholder='Search for city...'
     value={city} onChange={(e)=>{
       setCity(e.currentTarget.value)
@@ -24,23 +35,3 @@ export const Input = ({setQuery}) => {
   )
 }
 
-
-//const fetchApi = async()=>{
-    //     try{
-    //      let res1 = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${apiKey}`);
-    //      let data1 = await res1.json();
-    //      let latitude = data1.coord.lat;
-    //      let longitude = data1.coord.lon;
-    //       // console.log(latitude,longitude)
-    //      let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${apiKey}`;
-    
-    //       let res = await fetch(url);
-    //       let data = await res.json();
-    //       console.log("data", data);
-    //       // showWeatherData(data)
-    //     }catch(err){
-    //      console.log("er:", err);
-    //   }finally{
-    //       console.log("Worked finally")
-    //   }
-    //  }

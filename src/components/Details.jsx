@@ -20,7 +20,7 @@ export const Details = ({
     pressure,
     humidity,
     feels_like,
-   
+    
   },
 }) => {
   return (

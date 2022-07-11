@@ -10,17 +10,19 @@ import { getFormattedWeatherData} from "./Service/service";
 export const WeatherInfo = () => {
   
  const [query,setQuery] = useState({q:'berlin'});
+ const [units,setUnits] = useState('metric');
  const [weather,setWeather] =useState(null);
 
  useEffect(()=>{
   const fetchWeather =async()=>{
-    await getFormattedWeatherData({...query})
+    await getFormattedWeatherData({...query,units})
     .then((data)=>{
-      setWeather(data)
+      setWeather(data);
+      
     });
   }
   fetchWeather()
-},[query])
+},[query,units])
 
 
 
@@ -32,7 +34,7 @@ export const WeatherInfo = () => {
        {weather &&(
         <>
          <WeeklyForCast items={weather.daily}/>
-        <Details weather={weather}/>
+        <Details weather={weather} unit={setUnits}/>
           
         </>
          
@@ -41,12 +43,5 @@ export const WeatherInfo = () => {
       </div>
     </div>
 
-    /*{<input type="text"placeholder="Enter the City Name" value={state.query} onChange={handleChange} />
-       <button onClick={handlesearch}>Search</button>
-       {loading && <h1>Loading...</h1>}
-       {state?.data?.location &&
-       <h2>{state.data?.location?.name}</h2>}
-       {state.data?.current &&
-       <img src={state.data?.current?.condition?.icon} alt="weather app"/>} }*/
   );
 };
