@@ -11,6 +11,8 @@ export const WeatherInfo = () => {
   
  const [query,setQuery] = useState({q:'patna'});
  const [units,setUnits] = useState('metric');
+ const [display, setDisplay] = useState([]);
+ const [displayMode, setDisplayMode] = useState(true);
  const [weather,setWeather] =useState(null);
 
 
@@ -31,7 +33,7 @@ export const WeatherInfo = () => {
   return (
     <div className="main-container">
       <div className="container">
-        <Input setQuery={setQuery}/>
+        <Input setQuery={setQuery} setDisplay={setDisplay}/>
 
        {weather &&(
         <>

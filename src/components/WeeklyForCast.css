@@ -1,5 +1,5 @@
 .weeklyWeather {
-    border: 1px solid rgb(201, 198, 198);
+    
     margin-top: 10px;
     height: 110px;
     padding: 5px;
@@ -13,9 +13,11 @@
     
     width: 70px;
     justify-content: center;
-   padding: 5px;
+   padding: 6px;
    margin-left: 5px;
-   font-size: small;
-   
+   font-size: small; 
+}
+.flex-col:hover{
+    border: 1px solid black;
 }
 
