@@ -9,9 +9,10 @@ import { getFormattedWeatherData} from "./Service/service";
 
 export const WeatherInfo = () => {
   
- const [query,setQuery] = useState({q:'berlin'});
+ const [query,setQuery] = useState({q:'patna'});
  const [units,setUnits] = useState('metric');
  const [weather,setWeather] =useState(null);
+
 
  useEffect(()=>{
   const fetchWeather =async()=>{
@@ -21,11 +22,12 @@ export const WeatherInfo = () => {
       
     });
   }
-  fetchWeather()
+   fetchWeather()
+  
 },[query,units])
 
 
-
+  console.log(weather)
   return (
     <div className="main-container">
       <div className="container">
