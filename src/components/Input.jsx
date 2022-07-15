@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
+import { getFormattedWeatherData } from './Service/service';
 
 import { ImLocation } from "react-icons/im";
 import { BiSearch } from "react-icons/bi";
 import './Input.css'
-import data from '../db.json'
-export const Input = ({setQuery,setDisplay}) => {
-    
+export const Input = ({setQuery}) => {
+
   const [city,setCity] = useState('');
- 
+  //const [isLoading, setIsLoading] = useState(false);
+  const [result , setResult] = useState([]);
+
+  const debouncingSearch = useDebouncing(city,1000);
+
+  useEffect(()=>{
+    if(debouncingSearch){
+     
+      getFormattedWeatherData({q:debouncingSearch}).then((result)=>{
+        //console.log(result);
+        setResult([...result])
+       
+      })
+    }
+  },[debouncingSearch]);
+
+  console.log(result)
   const handleOnChange =(e)=>{
-    filterData(e.target.value);
+   
     setCity(e.target.value)
     
   }
@@ -27,15 +43,16 @@ export const Input = ({setQuery,setDisplay}) => {
       })
     }
   }
+  
   // Autosuggetion data handeling
 
-  const filterData =(text)=>{
-    let matches = data.filter((x)=>{
-      const regex = new RegExp(`${text}`, "gi");
-      return x.city.match(regex) || x.state.match(regex);
-    })
-    setDisplay(matches)
-  }
+  // const filterData =(text)=>{
+  //   let matches = data.filter((x)=>{
+  //     const regex = new RegExp(`${text}`, "gi");
+  //     return x.city.match(regex) || x.state.match(regex);
+  //   })
+  //   setDisplay(matches)
+  // }
   return (
     <>
      <div className="inputBox">
@@ -46,14 +63,31 @@ export const Input = ({setQuery,setDisplay}) => {
     onClick={handleSearchClick}/>
   </div>
     <div className='dropdown'>
-      {data.map((item)=>
-      <div className='dropdown-row'>
-       
-      </div>
-      )}
+      {result.map((item)=>{
+        return(
+
+          <div className='dropdown-row'>{item}</div>
+        )
+      })}
     </div>
     </>
    
   )
 }
 
+
+function useDebouncing(value, delay) {
+  
+  const [ debouncing, setDebouncing] = useState(value);
+
+  useEffect(()=>{
+    const handler = setTimeout(()=>{
+      setDebouncing(value)
+    },delay)
+   
+    return ()=>{
+      clearTimeout(handler)
+    }
+  },[value, delay]);
+  return debouncing
+}

@@ -34,3 +34,18 @@
 input:focus{
     outline: none;
 }
+.dropdown{
+    border: 1px solid gray;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.dropdown:empty{
+    border: none;
+}
+.dropdown-row{
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+}

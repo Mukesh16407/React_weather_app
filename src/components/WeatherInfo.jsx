@@ -11,12 +11,11 @@ export const WeatherInfo = () => {
   
  const [query,setQuery] = useState({q:'patna'});
  const [units,setUnits] = useState('metric');
- const [display, setDisplay] = useState([]);
- const [displayMode, setDisplayMode] = useState(true);
  const [weather,setWeather] =useState(null);
 
 
  useEffect(()=>{
+  
   const fetchWeather =async()=>{
     await getFormattedWeatherData({...query,units})
     .then((data)=>{
@@ -29,11 +28,11 @@ export const WeatherInfo = () => {
 },[query,units])
 
 
-  console.log(weather)
+  //console.log(weather)
   return (
     <div className="main-container">
       <div className="container">
-        <Input setQuery={setQuery} setDisplay={setDisplay}/>
+        <Input setQuery={setQuery}/>
 
        {weather &&(
         <>
@@ -49,3 +48,5 @@ export const WeatherInfo = () => {
 
   );
 };
+
+
