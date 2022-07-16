@@ -39,7 +39,8 @@ input:focus{
     margin-top: 2px;
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color:black;
+    color: white;
 }
 .dropdown:empty{
     border: none;

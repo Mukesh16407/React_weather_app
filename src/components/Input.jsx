@@ -63,12 +63,15 @@ export const Input = ({setQuery}) => {
     onClick={handleSearchClick}/>
   </div>
     <div className='dropdown'>
-      {result.map((item)=>{
-        return(
-
-          <div className='dropdown-row'>{item}</div>
-        )
-      })}
+      {result.filter(item =>{
+        const searchTerm = city.toLowerCase();
+        const cityName = item.toLowerCase();
+        return searchTerm && cityName.startsWith(searchTerm);
+      }).map((item)=>
+          <div className='dropdown-row'
+          >{item}</div>
+        
+      )}
     </div>
     </>
    

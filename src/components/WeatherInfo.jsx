@@ -5,7 +5,9 @@ import { Details } from "./Details";
 import "./WeatherInfo.css";
 import { WeeklyForCast } from "./WeeklyForCast";
 import { getFormattedWeatherData} from "./Service/service";
-
+import { WeatherGraph } from "./WeatherGraph";
+import LocalTimeAnDWeather from "./LocalTimeAnDWeather";
+import { HourlyForCast } from "./HourlyForCast";
 
 export const WeatherInfo = () => {
   
@@ -21,7 +23,11 @@ export const WeatherInfo = () => {
     .then((data)=>{
       setWeather(data);
       
-    });
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+
   }
    fetchWeather()
   
@@ -37,7 +43,12 @@ export const WeatherInfo = () => {
        {weather &&(
         <>
          <WeeklyForCast items={weather.daily}/>
+         <div className="bodyBox">
+        <LocalTimeAnDWeather weatherCondition={weather}/>
+        <WeatherGraph items={weather.daily}/>
         <Details weather={weather} unit={setUnits}/>
+        <HourlyForCast items={weather.hourly}/>
+         </div>
           
         </>
          

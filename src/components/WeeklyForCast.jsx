@@ -1,13 +1,13 @@
 import React from "react";
 import { iconUrlFromCode } from "./Service/service";
 import "./WeeklyForCast.css";
-export const WeeklyForCast = ({ items,i }) => {
+export const WeeklyForCast = ({ items }) => {
     
     return (
         <div className="weeklyWeather">
-      {items.map((item=> 
+      {items.map((item,i)=> (
         
-            <div className="flex-col">
+            <div className="flex-col" key={i}>
             <p >{item.title}</p>
             <p>
               {`${item.temp.toFixed()}`}

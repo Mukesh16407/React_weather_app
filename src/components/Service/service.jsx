@@ -88,3 +88,4 @@ export const formatToLocalTime = (secs,zone,format ="cccc,dd,LLL yyyy' Local tim
 export const iconUrlFromCode =(code)=>
     `http://openweathermap.org/img/wn/${code}@2x.png`;
 
+

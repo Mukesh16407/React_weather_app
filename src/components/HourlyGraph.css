@@ -1,0 +1,7 @@
+.hourlyWeather{
+    border: 1px solid red;
+    width: 97%;
+    height: 150px;
+    margin: auto;
+    padding: 5px;
+}
