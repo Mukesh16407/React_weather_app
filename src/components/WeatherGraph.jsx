@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './WeatherGraph.css'
 import Chart from 'react-apexcharts'
 
 export const WeatherGraph = ({items}) => {
  
- console.log(items) 
+ //console.log(items) 
   return (
     <div className='graph'>
       <Chart type='line' width="98%" height="98%"
       series={[
         {
           name:"Temperature",
-          data:[20,35,40,38,32]
+          data:items
         }
     ]}
       options={{

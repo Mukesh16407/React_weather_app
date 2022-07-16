@@ -1,21 +1,25 @@
-import React from 'react'
-import { iconUrlFromCode } from "./Service/service";
+import React  from 'react'
+//import { iconUrlFromCode } from "./Service/service";
 import Chart from 'react-apexcharts'
 import './HourlyGraph.css'
 export const HourlyForCast = ({ items }) => {
-    console.log(items)
+    
+
+
   return (
     <div className="hourlyWeather">
        <Chart type='area' width="98%" height="98%"
       series={[
         {
           name:"Temperature",
-          data:[33,35,36,37,32]
+          data:items
         }
     ]}
       options={{
         
         title:{text:"Hourly Temp Analysis"},
+        colors:['#4e4949'],
+        stroke: {width:2,curve:'smooth'},
         xaxis:{
           categories:["10:00AM", "12:00AM", "02:00PM", "04:00PM","06:00PM"]
       
